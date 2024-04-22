@@ -1,0 +1,151 @@
+@import "../variables";
+
+$master-responsive: (
+  ""
+    (
+      dafault: "",
+    ),
+  "responsive"
+    (
+      mobile: sm\:,
+      laptop: lg\:,
+      // tablet: md\:,
+      // dekstop: xl\:,
+      // ultrawide: uw\:,
+    )
+);
+
+$master-style: (
+  "font-size"
+    (p-xl, p-lg, p-md, p-sm, p-xs, h6, h5, h4, h3, h2, h1, h1-lg, h1-xl),
+  "single-class-builder"
+    (
+      // FONT CLASS
+      ff-1 font-family $ff-1,
+      ff-1-bd font-family $ff-1-bd,
+      ff-1-md font-family $ff-1-md,
+      ff-1-lg font-family $ff-1-lg,
+      ff-2 font-family $ff-2,
+      ff-2-md font-family $ff-2-md,
+      ta-left text-align left,
+      ta-center text-align center,
+      ta-right text-align right,
+      txtf-u text-transform uppercase,
+      txtf-c text-transform capitalize,
+      fw-500 font-weight 500,
+      fw-700 font-weight 700,
+      // FONT CLASS - - - END
+      pos-a position absolute,
+      pos-r position relative,
+      pos-f position fixed,
+      pos-s position sticky,
+      of-v overflow visible,
+      of-h overflow hidden,
+      vb-v visibility visible,
+      vb-h visibility hidden,
+      cur-p cursor pointer,
+      ml-a margin-left auto,
+      mr-a margin-right auto,
+      // mt-a margin-top auto,
+      // mb-a margin-bottom auto,
+      w-a width auto,
+      h-a height auto,
+      cl-b clear both,
+      d-flex display flex,
+      d-block display block,
+      d-none display none,
+      fxw-w flex-wrap wrap,
+      ai-start align-items flex-start,
+      ai-center align-items center,
+      ai-end align-items flex-end,
+      jc-start justify-content flex-start,
+      jc-center justify-content center,
+      jc-end justify-content flex-end,
+      jc-between justify-content space-between,
+      jc-around justify-content space-around,
+      fxd-col flex-direction column,
+      fxd-row flex-direction row,
+      fxd-col-r flex-direction column-reverse,
+      fxd-row-r flex-direction row-reverse,
+      row display flex,
+      bd-s border-style solid,
+      h-100vh height 100vh,
+      bd-n border none,
+      bg-n background none,
+      ls-d list-style disc,
+      ws-n white-space nowrap,
+      trs-ln transition 'all 0.3s ease-in',
+    ),
+  "number-class-builder"
+    (
+      // FONT CLASS
+      ls letter-spacing,
+      // FONT CLASS - - - END
+      w width,
+      h height,
+      bd border-width,
+      bd-l border-left-width,
+      bd-t border-top-width,
+      bd-r border-right-width,
+      bd-b border-bottom-width,
+      f flex,
+      fxg flex-grow,
+      zi z-index,
+      order order,
+      bx-sh box-shadow,
+      lc line-clamp,
+      blur blur
+    ),
+  "rem-class-builder"
+    (
+      w width,
+      h height,
+      m margin,
+      ml margin-left,
+      mt margin-top,
+      mr margin-right,
+      mb margin-bottom,
+      p padding,
+      pl padding-left,
+      pt padding-top,
+      pr padding-right,
+      pb padding-bottom,
+      bd-rs border-radius,
+      bd-tl-rs border-top-left-radius,
+      bd-tr-rs border-top-right-radius,
+      bd-br-rs border-bottom-right-radius,
+      bd-bl-rs border-bottom-left-radius,
+      l left,
+      t top,
+      r right,
+      b bottom,
+      lh line-height
+    ),
+  "horizontal-vertical-rem-class-builder"
+    (
+      mx margin horizontal,
+      my margin vertical,
+      px padding horizontal,
+      py padding vertical,
+      bd-t-rs border-radius vertical,
+      bd-b-rs border-radius vertical,
+      bd-l-rs border-radius horintal,
+      bd-r-rs border-radius horintal
+    ),
+  "max-rem-class-builder" (max-w max-width),
+  "percentage-class-builder" (w width, h height, max-w max-width, op opacity),
+  "color-class-builder"
+    (
+      // FONT CLASS
+      tc color,
+      // FONT CLASS - - - END
+      bg background-color,
+      // bg-stripes --stripes-color,
+      bd-c border-color,
+      // bd-l-c border-left-color,
+      // bd-t-c border-top-color,
+      // bd-r-c border-right-color,
+      // bd-b-c border-bottom-color
+    ),
+  "col-class-builder" (col)
+);

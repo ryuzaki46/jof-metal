@@ -1,0 +1,313 @@
+// -=-=-=-=-=-=-=-=- FONT SIZE -=-=-=-=-=-=-=-=-
+$text-xs: 0.75rem;
+$text-xs-lh: 1rem;
+$m-text-xs: 0.75rem;
+$m-text-xs-lh: 1rem;
+// ---------------------------------------------
+$text-sm: 0.875rem;
+$text-sm-lh: 1.25rem;
+$m-text-sm: 0.875rem;
+$m-text-sm-lh: 1.25rem;
+// ---------------------------------------------
+$text-base: 1rem;
+$text-base-lh: 1.5rem;
+$m-text-base: 1rem;
+$m-text-base-lh: 1.5rem;
+// ---------------------------------------------
+$text-lg: 1.125rem;
+$text-lg-lh: 1.75rem;
+$m-text-lg: 1.125rem;
+$m-text-lg-lh: 1.75rem;
+// ---------------------------------------------
+$text-xl: 1.25rem;
+$text-xl-lh: 1.75rem;
+$m-text-xl: 1.25rem;
+$m-text-xl-lh: 1.75rem;
+// ---------------------------------------------
+$text-2xl: 1.5rem;
+$text-2xl-lh: 2rem;
+$m-text-2xl: 1.5rem;
+$m-text-2xl-lh: 2rem;
+// ---------------------------------------------
+$text-3xl: 1.875rem;
+$text-3xl-lh: 2.25rem;
+$m-text-3xl: 1.85rem;
+$m-text-3xl-lh: 2.15rem;
+// ---------------------------------------------
+$text-4xl: 2.25rem;
+$text-4xl-lh: 2.5rem;
+$m-text-4xl: 2rem;
+$m-text-4xl-lh: 2.25rem;
+// ---------------------------------------------
+$text-5xl: 3rem;
+$text-5xl-lh: 1;
+$m-text-5xl: 2.5rem;
+$m-text-5xl-lh: 1;
+// ---------------------------------------------
+$text-6xl: 3.75rem;
+$text-6xl-lh: 1;
+$m-text-6xl: 2.75rem;
+$m-text-6xl-lh: 1;
+// ---------------------------------------------
+$text-7xl: 4.5rem;
+$text-7xl-lh: 1;
+$m-text-7xl: 3.25rem;
+$m-text-7xl-lh: 1;
+// ---------------------------------------------
+$text-8xl: 6rem;
+$text-8xl-lh: 1;
+$m-text-8xl: 4.15rem;
+$m-text-8xl-lh: 1;
+// ---------------------------------------------
+$text-9xl: 8rem;
+$text-9xl-lh: 1;
+$m-text-9xl: 5rem;
+$m-text-9xl-lh: 1;
+// ---------------------------------------------
+
+// -=-=-=-=-=-=-=-=- FONT FAMILY -=-=-=-=-=-=-=-=-
+$ff-1: "Gotham-Book";
+$ff-1-bd: "Gotham-Bold";
+
+$flow: "Flow";
+$menlo: "Menlo";
+$system: "Montserrat";
+
+// -=-=-=-=-=-=-=-=- COLORS -=-=-=-=-=-=-=-=-
+
+// primary
+$d-color-primary-600: #00324c;
+$d-color-primary-500: #003f5f;
+$d-color-primary-400: #004f77;
+$d-color-primary-300: #337292;
+$d-color-primary-200: #6695ad;
+$d-color-primary-100: #99b9c9;
+$d-color-primary-contrast: #ffffff;
+
+// secondary
+$d-color-secondary-600: #c99a00;
+$d-color-secondary-500: #fbc000;
+$d-color-secondary-400: #fccd33;
+$d-color-secondary-300: #fdd966;
+$d-color-secondary-200: #fde699;
+$d-color-secondary-100: #feecb3;
+$d-color-secondary-contrast: $d-color-primary-600;
+
+// success
+$d-color-success-600: #079e74;
+$d-color-success-500: #09c691;
+$d-color-success-400: #3ad1a7;
+$d-color-success-300: #6bddbd;
+$d-color-success-200: #9de8d3;
+$d-color-success-100: #b5eede;
+$d-color-success-contrast: #ffffff;
+
+// warning
+$d-color-warning-600: #ccbd31;
+$d-color-warning-500: #ffec3d;
+$d-color-warning-400: #fff064;
+$d-color-warning-300: #fff48b;
+$d-color-warning-200: #fff69e;
+$d-color-warning-100: #fff7b1;
+$d-color-warning-contrast: #121014;
+
+// danger
+$d-color-danger-600: #bc3648;
+$d-color-danger-500: #eb445a;
+$d-color-danger-400: #ef697b;
+$d-color-danger-300: #f38f9c;
+$d-color-danger-200: #f7b4bd;
+$d-color-danger-100: #f9c7ce;
+$d-color-danger-contrast: #ffffff;
+
+// link
+$d-color-link-600: #2f68c5;
+$d-color-link-500: #3b82f6;
+$d-color-link-400: #629bf8;
+$d-color-link-300: #89b4fa;
+$d-color-link-200: #b1cdfb;
+$d-color-link-100: #d8e6fd;
+$d-color-link-contrast: #ffffff;
+
+// info
+$d-color-info-600: #4f52c1;
+$d-color-info-500: #6366f1;
+$d-color-info-400: #8285f4;
+$d-color-info-300: #a1a3f7;
+$d-color-info-200: #c1c2f9;
+$d-color-info-100: #d0d1fb;
+$d-color-info-contrast: #ffffff;
+
+// dark
+$d-color-dark: #121014;
+$d-color-dark-contrast: #ffffff;
+$d-color-dark-shade: #0e0d10;
+$d-color-dark-tint: #414043;
+
+// medium
+$d-color-medium: #92949c;
+$d-color-medium-contrast: #ffffff;
+$d-color-medium-shade: #75767d;
+$d-color-medium-tint: #a8a9b0;
+
+// light
+$d-color-light: #eaedf1;
+$d-color-light-contrast: #000000;
+$d-color-light-shade: #d7d8da;
+$d-color-light-tint: #f5f6f9;
+
+$bg-color: #f7f7f7;
+
+// -=-=-=-=-=-=-=-=- SIZE CONTROL -=-=-=-=-=-=-=-=-
+$rem-sizes: (
+  0: 0,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 0.75rem,
+  4: 1rem,
+  5: 1.25rem,
+  6: 1.5rem,
+  7: 1.75rem,
+  8: 2rem,
+  9: 2.25rem,
+  10: 2.5rem,
+  11: 2.75rem,
+  12: 3rem,
+  14: 3.5rem,
+  16: 4rem,
+  20: 5rem,
+  21: 5.25rem,
+  24: 6rem,
+  28: 7rem,
+  32: 8rem,
+  36: 9rem,
+  40: 10rem,
+  44: 11rem,
+  48: 12rem,
+  52: 13rem,
+  56: 14rem,
+  60: 15rem,
+  64: 16rem,
+  72: 18rem,
+  80: 20rem,
+  96: 24rem,
+);
+$max-rem-sizes: (
+  xs: 20rem,
+  sm: 24rem,
+  md: 28rem,
+  lg: 32rem,
+  xl: 36rem,
+  2xl: 42rem,
+  3xl: 48rem,
+  4xl: 56rem,
+  5xl: 64rem,
+  6xl: 72rem,
+  7xl: 80rem,
+  8xl: 90rem,
+);
+
+$percentage-sizes: (
+  0: 0%,
+  5: 5%,
+  10: 10%,
+  15: 15%,
+  20: 20%,
+  25: 25%,
+  30: 30%,
+  35: 35%,
+  40: 40%,
+  45: 45%,
+  50: 50%,
+  55: 55%,
+  60: 60%,
+  65: 65%,
+  70: 70%,
+  75: 75%,
+  80: 80%,
+  85: 85%,
+  90: 90%,
+  95: 95%,
+  100: 100%,
+);
+
+$col-sizes: (
+  "2": 16.666%,
+  "2-4": 20%,
+  "3": 25%,
+  "3-5": 29.16665%,
+  "4": 33.33333%,
+  "5": 41.66667%,
+  "6": 50%,
+  "7": 58.33333%,
+  "8": 66.66667%,
+  "9": 75%,
+  "10": 83.333%,
+  "12": 100%,
+);
+
+$color-range: (
+  primary-600: primary-600,
+  primary-500: primary-500,
+  primary-400: primary-400,
+  primary-300: primary-300,
+  primary-200: primary-200,
+  primary-100: primary-100,
+  primary-contrast: primary-contrast,
+  secondary-600: secondary-600,
+  secondary-500: secondary-500,
+  secondary-400: secondary-400,
+  secondary-300: secondary-300,
+  secondary-200: secondary-200,
+  secondary-100: secondary-100,
+  secondary-contrast: secondary-contrast,
+  success-600: success-600,
+  success-500: success-500,
+  success-400: success-400,
+  success-300: success-300,
+  success-200: success-200,
+  success-100: success-100,
+  success-contrast: success-contrast,
+  warning-600: warning-600,
+  warning-500: warning-500,
+  warning-400: warning-400,
+  warning-300: warning-300,
+  warning-200: warning-200,
+  warning-100: warning-100,
+  warning-contrast: warning-contrast,
+  danger-600: danger-600,
+  danger-500: danger-500,
+  danger-400: danger-400,
+  danger-300: danger-300,
+  danger-200: danger-200,
+  danger-100: danger-100,
+  danger-contrast: danger-contrast,
+  link-600: link-600,
+  link-500: link-500,
+  link-400: link-400,
+  link-300: link-300,
+  link-200: link-200,
+  link-100: link-100,
+  link-contrast: link-contrast,
+  info-600: info-600,
+  info-500: info-500,
+  info-400: info-400,
+  info-300: info-300,
+  info-200: info-200,
+  info-100: info-100,
+  info-contrast: info-contrast,
+  dark: dark,
+  dark-shade: dark-shade,
+  dark-tint: dark-tint,
+  dark-contrast: dark-contrast,
+  medium: medium,
+  medium-shade: medium-shade,
+  medium-tint: medium-tint,
+  medium-contrast: medium-contrast,
+  light: light,
+  light-shade: light-shade,
+  light-tint: light-tint,
+  light-contrast: light-contrast,
+);
+
+$padding-l-r: var(--padding-l-r);

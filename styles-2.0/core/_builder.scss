@@ -1,0 +1,132 @@
+@import "../mixins";
+
+@mixin font-size-builder($v, $x) {
+  .#{$v}#{$x} {
+    font-size: var(--fz-#{$x});
+    line-height: var(--lh-#{$x});
+  }
+}
+
+@mixin number-class-builder($v, $w, $x) {
+  @for $n from 1 through 6 {
+    @if ($x == w or $x == h) {
+      .#{$v}#{$x}-#{$n}px {
+        #{$w}: #{$n}px;
+      }
+    } @else if ($x == bx-sh) {
+      .#{$v}#{$x}-#{$n} {
+        #{$w}: 0 #{$n * 0.75}px #{$n + 2}px rgba(31, 19, 19, 0.05);
+      }
+    } @else if ($x == lc) {
+      .#{$v}#{$x}-#{$n} {
+        @include line-clamp($n);
+      }
+    } @else if ($x == blur) {
+      .#{$v}#{$x}-#{$n} {
+        -webkit-backdrop-filter: blur(#{$n * 6}px);
+        backdrop-filter: blur(#{$n * 6}px);
+      }
+    } @else {
+      .#{$v}#{$x}-#{$n} {
+        @if ($x == zi or $x == order or $x == f or $x == fxg) {
+          #{$w}: #{$n};
+        } @else {
+          #{$w}: #{$n}px;
+        }
+      }
+    }
+  }
+}
+
+@mixin single-class-builder($v, $w, $x, $y) {
+  .#{$v}#{$x} {
+    #{$w}: #{$y};
+  }
+}
+
+@mixin color-class-builder($v, $w, $x, $u, $y) {
+  .#{$v}#{$x}-#{$u} {
+    // #{$w}: var(--d-color-#{$y});
+    #{$w}: #{$y};
+  }
+
+  .hover\:#{$v}#{$x}-#{$u}:hover {
+    // #{$w}: var(--d-color-#{$y});
+    #{$w}: #{$y};
+  }
+
+  .master-body.dark {
+    .dark\:#{$v}#{$x}-#{$u} {
+      // #{$w}: var(--d-color-#{$y}) !important;
+      #{$w}: #{$y} !important;
+    }
+  }
+
+  @if ($x == bg or $x == bd-c) {
+    @each $p, $value in $percentage-sizes {
+      .#{$v}#{$x}-#{$u}\/#{$p} {
+        #{$w}: rgba($y, $value/100);
+      }
+    }
+  }
+}
+
+@mixin size-class-builder($v, $w, $x, $u, $y, $z) {
+  @if ($x == col) {
+    .#{$v}#{$x}-#{$u} {
+      max-width: #{$y};
+    }
+
+    .#{$v}fxw-w {
+      .#{$v}#{$x}-#{$u} {
+        min-width: #{$y};
+      }
+    }
+  } @else if ($z == rem) {
+    .#{$v}#{$x}-#{$u} {
+      #{$w}: #{$y};
+    }
+  } @else if ($z == rem-minus) {
+    .#{$v}-#{$x}-#{$u} {
+      #{$w}: -#{$y};
+    }
+  } @else if ($z == percentage) {
+    .#{$v}#{$x}-#{$u}\% {
+      #{$w}: #{$y};
+    }
+  }
+}
+
+@mixin horizontal-vertical-rem-class-builder($v, $d, $w, $x, $u, $y) {
+  @if ($w == border-radius) {
+    @if ($x == bd-t-rs) {
+      .#{$v}#{$x}-#{$u} {
+        border-radius: #{$y} #{$y} 0 0;
+      }
+    } @else if ($x == bd-b-rs) {
+      .#{$v}#{$x}-#{$u} {
+        border-radius: 0 0 #{$y} #{$y};
+      }
+    } @else if ($x == bd-l-rs) {
+      .#{$v}#{$x}-#{$u} {
+        border-radius: #{$y} 0 0 #{$y};
+      }
+    } @else {
+      .#{$v}#{$x}-#{$u} {
+        border-radius: 0 #{$y} #{$y} 0;
+      }
+    }
+  } @else {
+    @if ($d == horizontal) {
+      .#{$v}#{$x}-#{$u} {
+        #{$w}-left: #{$y};
+        #{$w}-right: #{$y};
+      }
+    } @else {
+      .#{$v}#{$x}-#{$u} {
+        #{$w}-top: #{$y};
+        #{$w}-bottom: #{$y};
+      }
+    }
+  }
+}

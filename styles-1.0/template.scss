@@ -1,0 +1,412 @@
+$ultrawide: "only screen and (min-width: 1536px)";
+$dekstop: "only screen and (min-width: 1281px)";
+$laptop: "only screen and (min-width: 1025px) and (max-width: 1280px)";
+$tablet: "only screen and (min-width: 768px) and (max-width: 1024px)";
+$tablet-l: "only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape)";
+$phone: "only screen and (min-width: 320px) and (max-width: 480px)";
+$phone-l: "only screen and (min-width: 481px) and (max-width: 767px)";
+
+@import "variables";
+@import "mixins";
+
+// -=-=-=-=-=-=-=-=- OVERLAY -=-=-=-=-=-=-=-=-
+.overlay {
+  @include blur(rgba($d-color-dark-contrast, 0.25), 20px);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  z-index: 8;
+  top: 0;
+  transition: all 0.4s cubic-bezier(0.76, 0, 0.07, 1);
+  right: -100%;
+  opacity: 0;
+
+  .inner-wrapper {
+    background-color: #fff;
+    width: 0;
+    position: relative;
+    height: 100%;
+    transition: all 0.4s cubic-bezier(0.76, 0, 0.07, 1);
+    transition-delay: 0.6;
+  }
+
+  &.active {
+    right: 0;
+    opacity: 1;
+
+    .inner-wrapper {
+      width: 50%;
+    }
+  }
+
+  @include this-mobile() {
+    .inner-wrapper {
+      width: 100%;
+    }
+    &.active {
+      right: 0;
+      opacity: 1;
+
+      .inner-wrapper {
+        width: 100%;
+      }
+    }
+  }
+}
+// -=-=-=-=-=-=-=-=- OVERLAY - - -  END -=-=-=-=-=-=-=-=-
+
+// -=-=-=-=-=-=-=-=- TAB -=-=-=-=-=-=-=-=-
+.tab {
+  position: relative;
+  width: 100%;
+  &:after,
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 75px;
+    height: 48px;
+    z-index: 2;
+  }
+  &:before {
+    left: 0;
+    @include gradient(
+      rgba($bg-color, 1),
+      0%,
+      rgba($bg-color, 0.75),
+      35%,
+      rgba($bg-color, 0),
+      100%,
+      left
+    );
+    display: none;
+  }
+
+  &:after {
+    right: 0;
+    @include gradient(
+      rgba($bg-color, 1),
+      0%,
+      rgba($bg-color, 0.75),
+      35%,
+      rgba($bg-color, 0),
+      100%,
+      right
+    );
+  }
+
+  .tab-header {
+    position: relative;
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    transition: all 0.32s;
+    // transform: scale(0.98);
+    will-change: transform;
+    user-select: none;
+    cursor: pointer;
+    // margin-bottom: 25px;
+    @include user-select-none();
+    display: flex;
+    align-items: center;
+    &.active {
+      background: rgba(255, 255, 255, 0.3);
+      cursor: grabbing;
+      cursor: -webkit-grabbing;
+      // transform: scale(1);
+      // margin-bottom: 5px;
+    }
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    & {
+      -ms-overflow-style: none;
+    }
+
+    .filter-button {
+      display: flex;
+      align-items: center;
+      padding-right: rem(16);
+      position: relative;
+
+      .icon {
+        position: absolute;
+        right: rem(6);
+        font-size: 24px;
+      }
+    }
+
+    &-item {
+      // min-width: 48px;
+      // max-width: 250px;
+      display: inline-block;
+      padding: rem(3) rem(8);
+      background-color: transparent;
+      border-radius: rem(8);
+      // @include font(18px, $d-color-medium, $system, 1, 0);
+      // font-size: 18px;
+      color: $d-color-medium;
+      font-family: $system;
+      transition: all 0.32s;
+      cursor: pointer;
+      border: 1px solid rgba($d-color-primary-500, 0.2);
+      @include user-select-none();
+
+      &.active,
+      &:hover {
+        // color: darken($d-color-primary-500, 1);
+        color: $d-color-dark-contrast;
+        background-color: rgba($d-color-primary-500, 1);
+      }
+
+      &.no-display {
+        // display: none;
+        opacity: 0;
+        padding: 15px 0;
+        width: 38px;
+      }
+    }
+  }
+
+  .tab-content {
+    .result-wrapper {
+      .row {
+        @include this-dekstop() {
+          margin-left: -12px;
+          width: calc(100% + 12px * 2);
+        }
+      }
+    }
+  }
+}
+// -=-=-=-=-=-=-=-=- TAB - - - END -=-=-=-=-=-=-=-=-
+
+// -=-=-=-=-=-=-=-=- MAP -=-=-=-=-=-=-=-=-
+.map-wrapper {
+  height: auto;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  .map {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 560px;
+    background-color: #ddd;
+    border-radius: rem(10) rem(10) rem(1) rem(1);
+    overflow: hidden;
+
+    // .mapboxgl-ctrl-bottom-left {
+    //   display: none !important;
+    // }
+
+    // .mapboxgl-ctrl-bottom-right {
+    //   display: none !important;
+    // }
+
+    #contact-map {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+
+      .mapboxgl-canvas {
+        width: 100% !important;
+      }
+    }
+  }
+
+  .map-info-wrapper {
+    // position: absolute;
+    @include blur(rgba(#fff, 0.3), 20px);
+  }
+
+  @include this-mobile() {
+    .map {
+      max-height: 315px;
+    }
+  }
+}
+// -=-=-=-=-=-=-=-=- MAP - - -  END -=-=-=-=-=-=-=-=-
+
+// -=-=-=-=-=-=-=-=- INQUIRIES FORM -=-=-=-=-=-=-=-=-
+.inquiries-form {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+
+  textarea.input-type {
+    min-height: 150px;
+  }
+
+  .input-type {
+    width: calc(100% - 10px * 2);
+    padding: 12px;
+    background: none;
+    border: none;
+    border-bottom: 1px solid $d-color-primary-600;
+    font-size: 20px;
+    margin: 10px 0;
+    border-radius: 0;
+    color: $d-color-primary-contrast;
+  }
+
+  .select-frame {
+    width: 100%;
+    background: none;
+    border: none;
+    position: relative;
+    font-size: 20px;
+    margin: 10px 0;
+    // padding: 12px 0;
+
+    .input-select {
+      border-radius: 0;
+      width: calc(100%);
+      padding: 12px 0 20px 10px;
+      background: none;
+      border: none;
+      position: relative;
+      font-size: 20px;
+      letter-spacing: 1.2px;
+      font-family: $system;
+    }
+
+    &:after {
+      content: "";
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      background-color: $d-color-primary-600;
+    }
+  }
+
+  .btn-wrapper {
+    .btn {
+      min-width: 225px;
+    }
+  }
+}
+// -=-=-=-=-=-=-=-=- INQUIRIES FORM - - -  END -=-=-=-=-=-=-=-=-
+
+.master-body {
+  overflow-x: hidden;
+  max-width: var(--master-body-miw-c);
+  width: 100%;
+  margin: 0 auto;
+  transition: all 0.4s cubic-bezier(0.76, 0, 0.07, 1);
+  // background-color: #333;
+  // margin: auto;
+
+  .content-wrapper {
+    // overflow-y: hidden;
+  }
+
+  .inner {
+    margin: 0 auto;
+    max-width: var(--inner-miw-c);
+    width: calc(100% - var(--padding-l-r) * 2);
+
+    // @include this-mobile() {
+    //   opacity: 0;
+    //   visibility: hidden;
+    // }
+  }
+
+  &.dark {
+    background-color: $d-color-dark;
+  }
+}
+
+.sub-page {
+  .section-header {
+    padding-top: 80px;
+
+    @include this-mobile {
+      overflow-x: hidden;
+      padding-top: 0;
+
+      .header-slider-item {
+        height: 75vh;
+        // overflow-x: hidden;
+        // $fz-control: 100%;
+        &:after {
+          left: calc(#{rem(20)} * -1);
+          transform: translateX(0);
+          // font-size: $fz-control;
+        }
+
+        &:before {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          height: 100%;
+          width: 100%;
+          @include gradient(
+            rgba($d-color-primary-600, 1),
+            0%,
+            rgba($d-color-primary-600, 0.75),
+            35%,
+            rgba($d-color-primary-600, 0),
+            100%,
+            bottom
+          );
+        }
+      }
+    }
+  }
+}
+
+.sub-detail-page {
+  .section-header {
+    padding-top: 80px;
+  }
+}
+
+.horizontal-page {
+  .container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+
+    .space-holder {
+      position: relative;
+      width: 100%;
+
+      .sticky {
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        width: 100%;
+        overflow-x: hidden;
+
+        .horizontal {
+          position: absolute;
+          height: 100%;
+          will-change: transform;
+
+          // demo
+          .cards {
+            width: calc(80vw * 6);
+            height: 100%;
+
+            .card {
+              height: 80vh;
+              width: 80vw;
+            }
+          }
+        }
+      }
+    }
+  }
+}

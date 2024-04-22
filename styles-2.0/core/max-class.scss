@@ -1,0 +1,54 @@
+@import "builder";
+@import "controller";
+@import "../variables";
+
+@each $responsive in $master-responsive {
+  $responsive_type: nth($responsive, 1);
+  $responsive_class: nth($responsive, 2);
+
+  @if ($responsive_type == "") {
+    @each $style in $master-style {
+      $style_type: nth($style, 1);
+      $style_class: nth($style, 2);
+      $responsive_variant: map-get($responsive_class, default);
+      @if ($style_type == "max-rem-class-builder") {
+        @each $class, $style in $style_class {
+          @each $u, $value in $max-rem-sizes {
+            @include size-class-builder(
+              $responsive_variant,
+              $style,
+              $class,
+              $u,
+              $value,
+              rem
+            );
+          }
+        }
+      }
+    }
+  } @else {
+    @each $type, $responsive_variant in $responsive_class {
+      @include responsive($type) {
+        @each $style in $master-style {
+          $style_type: nth($style, 1);
+          $style_class: nth($style, 2);
+
+          @if ($style_type == "max-rem-class-builder") {
+            @each $class, $style in $style_class {
+              @each $u, $value in $max-rem-sizes {
+                @include size-class-builder(
+                  $responsive_variant,
+                  $style,
+                  $class,
+                  $u,
+                  $value,
+                  rem
+                );
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
